@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Background Removal</title>
+</head>
+<body>
+    <h1>Upload Images for Background Removal</h1>
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo" multiple>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>

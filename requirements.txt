@@ -1,0 +1,4 @@
+Flask
+Flask-Uploads
+Pillow
+rembg
