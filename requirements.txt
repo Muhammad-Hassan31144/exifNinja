@@ -2,3 +2,4 @@ Flask
 Flask-Uploads
 Pillow
 rembg
+gunicorn
