@@ -39,7 +39,7 @@ def upload():
         return redirect(url_for('process', filenames=','.join(filenames)))
     return redirect(url_for('index'))
 
-# Route to process images
+# Route to process images and remove EXIF data
 @app.route('/process/<filenames>', methods=['GET'])
 def process(filenames):
     filenames = filenames.split(',')
@@ -47,11 +47,17 @@ def process(filenames):
     for filename in filenames:
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         image = Image.open(file_path)
-        processed_image = remove(image)
+        image_without_exif = remove_exif(image)
         processed_path = os.path.join(app.config['PROCESSED_FOLDER'], filename)
-        processed_image.save(processed_path)
+        image_without_exif.save(processed_path)
         processed_filenames.append(filename)
     return render_template('processed.html', filenames=processed_filenames)
+
+def remove_exif(image):
+    # Remove EXIF data from the image
+    image_without_exif = image.copy()
+    image_without_exif.info.clear()
+    return image_without_exif
 
 # Route to download processed images
 @app.route('/download/<filename>')
