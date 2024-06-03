@@ -12,8 +12,8 @@ This Flask application allows users to upload images, processes them to remove E
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/image-exif-remover.git
-    cd image-exif-remover
+    git clone https://github.com/Muhammad-Hassan31144/exifNinja.git
+    cd exifNinja
     ```
 
 2. **Create and activate a virtual environment:**
